@@ -9,7 +9,7 @@ const {
   getAllPosts,
   getAllTags,
   getPostsByTagName
-} = require('./index');
+} = require('./index.cjs');
 
 async function dropTables() {
   try {

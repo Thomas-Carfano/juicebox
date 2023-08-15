@@ -5,7 +5,7 @@ const {
   createUser,
   getAllUsers,
   getUserByUsername,
-} = require('../db');
+} = require('../db/index.cjs');
 
 const jwt = require('jsonwebtoken');
 

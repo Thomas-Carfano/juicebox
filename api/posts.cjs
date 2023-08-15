@@ -1,14 +1,14 @@
 const express = require('express');
 const postsRouter = express.Router();
 
-const { requireUser } = require('./utils');
+const { requireUser } = require('./utils.cjs');
 
 const { 
   createPost,
   getAllPosts,
   updatePost,
   getPostById,
-} = require('../db');
+} = require('../db/index.cjs');
 
 postsRouter.get('/', async (req, res, next) => {
   try {

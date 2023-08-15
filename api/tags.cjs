@@ -4,7 +4,7 @@ const tagsRouter = express.Router();
 const { 
   getAllTags,
   getPostsByTagName
-} = require('../db');
+} = require('../db/index.cjs');
 
 tagsRouter.get('/', async (req, res, next) => {
   try {

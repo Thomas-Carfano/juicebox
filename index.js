@@ -14,14 +14,13 @@ server.use((req, res, next) => {
   console.log("<____Body Logger START____>");
   console.log(req.body);
   console.log("<_____Body Logger END_____>");
-
   next();
 });
 
-const apiRouter = require('./api');
+const apiRouter = require('./api/index.cjs');
 server.use('/api', apiRouter);
 
-const { client } = require('./db');
+const { client } = require('./db/index.cjs');
 client.connect();
 
 server.listen(PORT, () => {
