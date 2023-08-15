@@ -41,11 +41,12 @@ postsRouter.post('/', requireUser, async (req, res, next) => {
   const { title, content = "" } = req.body;
 
   const postData = {};
-
+  
   try {
     postData.authorId = req.user.id;
     postData.title = title;
     postData.content = content;
+    postData.tags = [tags.id, tags.name];
     
     const post = await createPost(postData);
 
@@ -98,6 +99,7 @@ postsRouter.patch('/:postId', requireUser, async (req, res, next) => {
 });
 
 postsRouter.delete('/:postId', requireUser, async (req, res, next) => {
+  const { postId } = req.params;
   res.send({ message: 'under construction' });
 });
 
