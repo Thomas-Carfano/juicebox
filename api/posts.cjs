@@ -1,6 +1,6 @@
 const express = require('express');
 const postsRouter = express.Router();
-
+const client = require('../db/index.cjs')
 const { requireUser } = require('./utils.cjs');
 
 const { 
@@ -38,7 +38,7 @@ postsRouter.get('/', async (req, res, next) => {
 });
 
 postsRouter.post('/', requireUser, async (req, res, next) => {
-  const { title, content = "" } = req.body;
+  const { title, content = "", tags } = req.body;
 
   const postData = {};
   
@@ -100,6 +100,9 @@ postsRouter.patch('/:postId', requireUser, async (req, res, next) => {
 
 postsRouter.delete('/:postId', requireUser, async (req, res, next) => {
   const { postId } = req.params;
+  console.log('poststs')
+  console.log(postId)
+
   res.send({ message: 'under construction' });
 });
 
